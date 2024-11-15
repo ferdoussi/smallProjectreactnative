@@ -10,7 +10,7 @@ const Test = () => {
   // وظيفة تسجيل المستخدم
   const handleSignup = async () => {
     if (!username || !password || !email) {
-      Alert.alert("يرجى ملء جميع الحقول");
+      Alert.alert("Please fill out all fields");
       return;
     }
 
@@ -21,40 +21,40 @@ const Test = () => {
         email,
       });
       if (response.data.success) {
-        Alert.alert("تم تسجيل الحساب بنجاح");
+        Alert.alert("The account has been registered");
       } else {
-        Alert.alert("فشل التسجيل");
+        Alert.alert("Registration failed");
       }
     } catch (error) {
-      Alert.alert("خطأ في الاتصال بالخادم");
+      Alert.alert("Server connection error");
     }
   };
 
-  // وظيفة تسجيل الدخول
-  const handleLogin = async () => {
-    if (!username || !password) {
-      Alert.alert("يرجى ملء جميع الحقول");
-      return;
-    }
+  // // وظيفة تسجيل الدخول
+  // const handleLogin = async () => {
+  //   if (!username || !password) {
+  //     Alert.alert("يرجى ملء جميع الحقول");
+  //     return;
+  //   }
 
-    try {
-      const response = await axios.post("https://jsonplaceholder.typicode.com/posts", {
-        username,
-        password,
-      });
-      if (response.data.success) {
-        Alert.alert("تم تسجيل الدخول بنجاح");
-      } else {
-        Alert.alert("فشل تسجيل الدخول");
-      }
-    } catch (error) {
-      Alert.alert("خطأ في الاتصال بالخادم");
-    }
-  };
+  //   try {
+  //     const response = await axios.post("https://jsonplaceholder.typicode.com/posts", {
+  //       username,
+  //       password,
+  //     });
+  //     if (response.data.success) {
+  //       Alert.alert("تم تسجيل الدخول بنجاح");
+  //     } else {
+  //       Alert.alert("فشل تسجيل الدخول");
+  //     }
+  //   } catch (error) {
+  //     Alert.alert("خطأ في الاتصال بالخادم");
+  //   }
+  // };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>تسجيل الدخول أو التسجيل</Text>
+      <Text style={styles.title}>SignUp</Text>
 
       {/* Signup Form */}
       <TextInput
@@ -76,9 +76,9 @@ const Test = () => {
         value={password}
         onChangeText={setPassword}
       />
-      <Button title="تسجيل حساب جديد" onPress={handleSignup} />
+      <Button title="SignUp" onPress={handleSignup}/>
 
-      {/* Login Form */}
+      {/* Login Form
       <TextInput
         style={styles.input}
         placeholder="اسم المستخدم"
@@ -92,7 +92,7 @@ const Test = () => {
         value={password}
         onChangeText={setPassword}
       />
-      <Button title="تسجيل الدخول" onPress={handleLogin} />
+      <Button title="تسجيل الدخول" onPress={handleLogin} /> */}
     </View>
   );
 };
@@ -115,6 +115,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginBottom: 15,
     paddingHorizontal: 10,
+    borderRadius:10,
+    borderColor:'green'
   },
 });
 
